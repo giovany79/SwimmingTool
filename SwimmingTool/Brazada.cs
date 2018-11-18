@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Timers;
 
 namespace SwimmingTool
 {
@@ -19,7 +20,10 @@ namespace SwimmingTool
 
         int numeroBrazadas = 0;
         TextView numBrazadaTV;
-        Chronometer simpleChronometer;
+        int mins = 0, secs = 0, milliseconds = 0;
+        Timer timer;
+        TextView txtTimer;
+        Boolean isStart = false;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,10 +31,13 @@ namespace SwimmingTool
 
             SetContentView(Resource.Layout.Brazadas);
 
-            simpleChronometer = FindViewById<Chronometer>(Resource.Id.simpleChronometer);
+
             FindViewById<Button>(Resource.Id.finishButton).Click += OnFinishClick;
             FindViewById<Button>(Resource.Id.brazadaButton).Click += OnBrazadaClick;
+            FindViewById<Button>(Resource.Id.startStopButton).Click += OnStartStopClick;
+            FindViewById<Button>(Resource.Id.resetButton).Click += OnResetClick;
             numBrazadaTV = FindViewById<TextView>(Resource.Id.numBrazadaTextView);
+            txtTimer = FindViewById<TextView>(Resource.Id.timeTextView);
 
 
         }
@@ -47,6 +54,53 @@ namespace SwimmingTool
             numBrazadaTV.Text = numeroBrazadas.ToString();
         }
 
+        void OnStartStopClick(object sender, EventArgs e)
+        {
+            if (isStart){
+                isStart = false;
+                timer.Stop();
+                timer = null;
+            }
+            else
+            {
+                timer = new Timer();
+                timer.Interval = 1;
+                timer.Elapsed += Timer_Elapsed;
+                isStart = true;
+                timer.Start();
+            }
+        }
+
+        void OnResetClick(object sender, EventArgs e){
+            numeroBrazadas = 0;
+            numBrazadaTV.Text = numeroBrazadas.ToString();
+
+            timer = new Timer();
+            isStart = false;
+            timer.Stop();
+            timer = null;
+            milliseconds = 0;
+            secs = 0;
+            mins = 0;
+            txtTimer.Text = String.Format("{0}:{1:00}:{2:000}", mins, secs, milliseconds);
+
+        }
+
+        void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            milliseconds++;
+            if(milliseconds>1000){
+                secs++;
+                milliseconds = 0;
+            }
+            if(secs==59){
+                mins++;
+                secs = 0;
+            }
+            RunOnUiThread(()=>{
+                txtTimer.Text = String.Format("{0}:{1:00}:{2:000}", mins, secs, milliseconds);  
+            });
+        }
 
     }
 }

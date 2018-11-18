@@ -67,7 +67,6 @@
     <AndroidResource Include="Resources\layout\Resultado.axml" />
     <AndroidResource Include="Resources\layout\Tabla.axml" />
     <AndroidResource Include="Resources\layout\Brazadas.axml" />
-    <AndroidResource Include="Resources\layout\Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
