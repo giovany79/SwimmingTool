@@ -18,19 +18,23 @@ namespace SwimmingTool
     public class Brazada : Activity
     {
 
-        int numeroBrazadas = 0;
-        TextView numBrazadaTV;
-        int mins = 0, secs = 0, milliseconds = 0;
-        Timer timer;
-        TextView txtTimer;
-        Boolean isStart = false;
+        private int numeroBrazadas = 0;
+        private TextView numBrazadaTV;
+        private int mins = 0, secs = 0, milliseconds = 0;
+        private Timer timer;
+        private TextView txtTimer;
+        private Boolean isStart = false;
+        private String documento;
+        public RegistroRepository registroDB;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             SetContentView(Resource.Layout.Brazadas);
+            documento = Intent.GetStringExtra("documento");
 
+            string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+            registroDB = new RegistroRepository(dbPath);
 
             FindViewById<Button>(Resource.Id.finishButton).Click += OnFinishClick;
             FindViewById<Button>(Resource.Id.brazadaButton).Click += OnBrazadaClick;
@@ -46,6 +50,14 @@ namespace SwimmingTool
         {
             var intent = new Intent(this, typeof(Resultado));
             StartActivity(intent);
+
+            Registro registro = new Registro();
+            registro.documento = documento;
+            registro.numBrazadas = numeroBrazadas;
+            registro.feha = DateTime.Now.ToString();
+            registro.time = txtTimer.Text;
+            registroDB.addNewRegistro(registro);
+
         }
 
         void OnBrazadaClick(object sender, EventArgs e)
@@ -85,6 +97,9 @@ namespace SwimmingTool
             txtTimer.Text = String.Format("{0}:{1:00}:{2:000}", mins, secs, milliseconds);
 
         }
+
+
+
 
         void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {

@@ -16,11 +16,23 @@ namespace SwimmingTool
     [Activity(Label = "Tabla")]
     public class Tabla : Activity
     {
+
+        public RegistroRepository registroDB;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Tabla);
+
+            string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+            registroDB = new RegistroRepository(dbPath);
+
             FindViewById<Button>(Resource.Id.homeButton).Click += OnFinishClick;
+
+            List<Nadador> nadadores = registroDB.GetAllNadadores();
+            List<Registro> registros = registroDB.GetAllRegistros();
+
+
         }
 
         void OnFinishClick(object sender, EventArgs e)

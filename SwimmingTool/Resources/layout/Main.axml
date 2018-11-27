@@ -17,7 +17,7 @@
             android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText1"
+            android:id="@+id/documentEditText"
             android:autofillHints="fsfsd"
             android:hint="Documento de Identidad" />
     </LinearLayout>
@@ -32,7 +32,7 @@
             android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/nombreEditText"
             android:hint="Nombre" />
     </LinearLayout>
     <LinearLayout
@@ -48,7 +48,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout8" >
+            android:id="@+id/sexoRadioButton">
             <RadioGroup
                 android:minWidth="25px"
                 android:minHeight="25px"
@@ -59,12 +59,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:id="@+id/radioButton1"
+                    android:id="@+id/hombreRadioButton"
                     android:text="Hombre" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/mujerRadioButton"
                     android:text="Mujer" />
             </RadioGroup>
         </LinearLayout>
@@ -80,7 +80,7 @@
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText5"
+            android:id="@+id/estaturaEditText"
             android:hint="Estatura(cm)" />
     </LinearLayout>
     <LinearLayout
@@ -94,7 +94,7 @@
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/brazoEditText"
             android:hint="Longitud brazo(cm)" />
     </LinearLayout>
     <LinearLayout

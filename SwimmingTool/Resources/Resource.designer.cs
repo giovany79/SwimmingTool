@@ -53,32 +53,35 @@ namespace SwimmingTool
 			// aapt resource value: 0x7f050007
 			public const int brazadaButton = 2131034119;
 			
-			// aapt resource value: 0x7f05001b
-			public const int button1 = 2131034139;
+			// aapt resource value: 0x7f050014
+			public const int brazoEditText = 2131034132;
+			
+			// aapt resource value: 0x7f05001c
+			public const int button1 = 2131034140;
 			
 			// aapt resource value: 0x7f050018
 			public const int cancelButton = 2131034136;
 			
 			// aapt resource value: 0x7f05000a
-			public const int editText1 = 2131034122;
+			public const int documentEditText = 2131034122;
 			
-			// aapt resource value: 0x7f05000b
-			public const int editText2 = 2131034123;
-			
-			// aapt resource value: 0x7f050014
-			public const int editText4 = 2131034132;
+			// aapt resource value: 0x7f05001b
+			public const int editText1 = 2131034139;
 			
 			// aapt resource value: 0x7f050012
-			public const int editText5 = 2131034130;
+			public const int estaturaEditText = 2131034130;
 			
 			// aapt resource value: 0x7f050009
 			public const int finishButton = 2131034121;
 			
-			// aapt resource value: 0x7f05001c
-			public const int gridView1 = 2131034140;
-			
 			// aapt resource value: 0x7f05001d
-			public const int homeButton = 2131034141;
+			public const int gridView1 = 2131034141;
+			
+			// aapt resource value: 0x7f05000f
+			public const int hombreRadioButton = 2131034127;
+			
+			// aapt resource value: 0x7f05001e
+			public const int homeButton = 2131034142;
 			
 			// aapt resource value: 0x7f050000
 			public const int linearLayout1 = 2131034112;
@@ -101,20 +104,17 @@ namespace SwimmingTool
 			// aapt resource value: 0x7f050016
 			public const int linearLayout7 = 2131034134;
 			
-			// aapt resource value: 0x7f05000d
-			public const int linearLayout8 = 2131034125;
-			
 			// aapt resource value: 0x7f050011
 			public const int linearLayout9 = 2131034129;
 			
+			// aapt resource value: 0x7f050010
+			public const int mujerRadioButton = 2131034128;
+			
+			// aapt resource value: 0x7f05000b
+			public const int nombreEditText = 2131034123;
+			
 			// aapt resource value: 0x7f050008
 			public const int numBrazadaTextView = 2131034120;
-			
-			// aapt resource value: 0x7f05000f
-			public const int radioButton1 = 2131034127;
-			
-			// aapt resource value: 0x7f050010
-			public const int radioButton2 = 2131034128;
 			
 			// aapt resource value: 0x7f05000e
 			public const int radioGroup1 = 2131034126;
@@ -124,6 +124,9 @@ namespace SwimmingTool
 			
 			// aapt resource value: 0x7f05001a
 			public const int sessionButton = 2131034138;
+			
+			// aapt resource value: 0x7f05000d
+			public const int sexoRadioButton = 2131034125;
 			
 			// aapt resource value: 0x7f050003
 			public const int startStopButton = 2131034115;
