@@ -18,6 +18,12 @@ namespace SwimmingTool
     {
 
         public RegistroRepository registroDB;
+        EditText documentEditText;
+        TextView documentoTextView;
+        TextView nombreTextView;
+        TextView sexoTextView;
+        TextView estaturaTexView;
+        TextView longitudTextView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,17 +34,43 @@ namespace SwimmingTool
             registroDB = new RegistroRepository(dbPath);
 
             FindViewById<Button>(Resource.Id.homeButton).Click += OnFinishClick;
+            FindViewById<Button>(Resource.Id.consultarButton).Click += OnConsultarClick;
+            documentEditText = FindViewById<EditText>(Resource.Id.documentoEditText);
+            ListView resultListView = FindViewById<ListView>(Resource.Id.resultListView);
+
+            documentoTextView = FindViewById<TextView>(Resource.Id.documentoTextView);
+            nombreTextView = FindViewById<TextView>(Resource.Id.nombreTextView);
+            sexoTextView = FindViewById<TextView>(Resource.Id.sexoTextView);
+            estaturaTexView = FindViewById<TextView>(Resource.Id.estaturaTextView);
+            longitudTextView = FindViewById<TextView>(Resource.Id.brazadaTextView);
 
             List<Nadador> nadadores = registroDB.GetAllNadadores();
             List<Registro> registros = registroDB.GetAllRegistros();
 
-
+            var items = new List<String>();
+            foreach(var listing in nadadores){
+                items.Add(listing.documentId + " / " + listing.nombre + " / " + listing.sexo + " / " + listing.estatura + " / " + listing.longitudBrazo);
+            }
+            var adapter =new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            resultListView.Adapter = adapter;
         }
 
         void OnFinishClick(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
+        }
+
+        void OnConsultarClick(object sender, EventArgs e)
+        {
+            Nadador nadador = registroDB.GetNadador(documentEditText.Text);
+            documentoTextView.Text = nadador.documentId;
+            nombreTextView.Text = nadador.nombre;
+            sexoTextView.Text = Convert.ToString(nadador.sexo);
+            estaturaTexView.Text = Convert.ToString(nadador.estatura);
+            longitudTextView.Text = Convert.ToString(nadador.longitudBrazo);
+
+
         }
     }
 }
