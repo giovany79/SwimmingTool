@@ -14,8 +14,5 @@ namespace SwimmingTool.Model
         public int estatura { get; set; }
         public int longitudBrazo { get; set; }
 
-        public Nadador()
-        {
-        }
     }
 }

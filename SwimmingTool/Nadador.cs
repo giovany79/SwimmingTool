@@ -15,4 +15,6 @@ namespace SwimmingTool
         public int longitudBrazo { get; set; }
 
     }
+
+
 }

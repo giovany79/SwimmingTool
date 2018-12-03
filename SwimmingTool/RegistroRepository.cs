@@ -85,6 +85,24 @@ namespace SwimmingTool
             return new List<Nadador>();
         }
 
+        public Nadador GetNadador(String documentId){
+            Nadador nadador = null;
+            try
+            {
+                var nadadores =  conn.Query<Nadador>("select * from nadadores where documentId = ?", documentId);
+
+                foreach(var participante in nadadores){
+                    nadador = participante;
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return nadador;
+        }
+
     }
 
 
