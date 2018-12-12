@@ -103,6 +103,20 @@ namespace SwimmingTool
             return nadador;
         }
 
+        public List<Registro>GetRegistrosByDocument(String documentId){
+            try
+            {
+                var registros = conn.Query<Registro>("select * from registro where documentId = ?", documentId);
+                return registros;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new List<Registro>();
+        }
+
     }
 
 

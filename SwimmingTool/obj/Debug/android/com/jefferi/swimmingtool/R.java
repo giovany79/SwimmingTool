@@ -11,41 +11,52 @@ public final class R {
     public static final class attr {
     }
     public static final class id {
-        public static final int HomeButton=0x7f050018;
-        public static final int acceptButton=0x7f050016;
-        public static final int brazadaButton=0x7f050005;
-        public static final int button1=0x7f050002;
-        public static final int button6=0x7f050008;
-        public static final int cancelButton=0x7f050017;
-        public static final int editText1=0x7f050009;
-        public static final int editText2=0x7f05000a;
-        public static final int editText4=0x7f050013;
-        public static final int editText5=0x7f050011;
-        public static final int finishButton=0x7f050007;
-        public static final int gridView1=0x7f05001a;
-        public static final int homeButton=0x7f05001b;
+        public static final int HomeButton=0x7f050019;
+        public static final int acceptButton=0x7f050017;
+        public static final int brazadaButton=0x7f050007;
+        public static final int brazadaTextView=0x7f050026;
+        public static final int brazoEditText=0x7f050014;
+        public static final int cancelButton=0x7f050018;
+        public static final int consultarButton=0x7f05001c;
+        public static final int documentEditText=0x7f05000a;
+        public static final int documentoEditText=0x7f05001b;
+        public static final int documentoTextView=0x7f05001e;
+        public static final int estatTextView=0x7f050023;
+        public static final int estaturaEditText=0x7f050012;
+        public static final int estaturaTextView=0x7f050024;
+        public static final int finishButton=0x7f050009;
+        public static final int hombreRadioButton=0x7f05000f;
+        public static final int homeButton=0x7f05001d;
         public static final int linearLayout1=0x7f050000;
         public static final int linearLayout2=0x7f050001;
-        public static final int linearLayout4=0x7f05000b;
-        public static final int linearLayout5=0x7f050012;
-        public static final int linearLayout6=0x7f050014;
-        public static final int linearLayout7=0x7f050015;
-        public static final int linearLayout8=0x7f05000c;
-        public static final int linearLayout9=0x7f050010;
-        public static final int numBrazadaTextView=0x7f050006;
-        public static final int radioButton1=0x7f05000e;
-        public static final int radioButton2=0x7f05000f;
-        public static final int radioGroup1=0x7f05000d;
-        public static final int sessionButton=0x7f050019;
-        public static final int simpleChronometer=0x7f050004;
-        public static final int textView1=0x7f050003;
+        public static final int linearLayout3=0x7f050002;
+        public static final int linearLayout4=0x7f05000c;
+        public static final int linearLayout5=0x7f050013;
+        public static final int linearLayout6=0x7f050015;
+        public static final int linearLayout7=0x7f050016;
+        public static final int linearLayout9=0x7f050011;
+        public static final int mujerRadioButton=0x7f050010;
+        public static final int nombreEditText=0x7f05000b;
+        public static final int nombreTextView=0x7f050020;
+        public static final int numBrazadaTextView=0x7f050008;
+        public static final int radioGroup1=0x7f05000e;
+        public static final int resetButton=0x7f050004;
+        public static final int resultListView=0x7f050027;
+        public static final int sessionButton=0x7f05001a;
+        public static final int sexoRadioButton=0x7f05000d;
+        public static final int sexoTextView=0x7f050022;
+        public static final int startStopButton=0x7f050003;
+        public static final int textView1=0x7f050005;
+        public static final int textView2=0x7f05001f;
+        public static final int textView3=0x7f050021;
+        public static final int textView6=0x7f050025;
+        public static final int timeTextView=0x7f050006;
     }
     public static final class layout {
         public static final int brazadas=0x7f030000;
-        public static final int layout=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int resultado=0x7f030003;
-        public static final int tabla=0x7f030004;
+        public static final int main=0x7f030001;
+        public static final int resultado=0x7f030002;
+        public static final int tabla=0x7f030003;
     }
     public static final class mipmap {
         public static final int icon=0x7f020000;

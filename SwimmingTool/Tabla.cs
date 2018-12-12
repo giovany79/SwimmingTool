@@ -19,6 +19,7 @@ namespace SwimmingTool
 
         public RegistroRepository registroDB;
         EditText documentEditText;
+        ListView resultListView;
         TextView documentoTextView;
         TextView nombreTextView;
         TextView sexoTextView;
@@ -36,8 +37,7 @@ namespace SwimmingTool
             FindViewById<Button>(Resource.Id.homeButton).Click += OnFinishClick;
             FindViewById<Button>(Resource.Id.consultarButton).Click += OnConsultarClick;
             documentEditText = FindViewById<EditText>(Resource.Id.documentoEditText);
-            ListView resultListView = FindViewById<ListView>(Resource.Id.resultListView);
-
+            resultListView = FindViewById<ListView>(Resource.Id.resultListView);
             documentoTextView = FindViewById<TextView>(Resource.Id.documentoTextView);
             nombreTextView = FindViewById<TextView>(Resource.Id.nombreTextView);
             sexoTextView = FindViewById<TextView>(Resource.Id.sexoTextView);
@@ -47,12 +47,12 @@ namespace SwimmingTool
             List<Nadador> nadadores = registroDB.GetAllNadadores();
             List<Registro> registros = registroDB.GetAllRegistros();
 
-            var items = new List<String>();
-            foreach(var listing in nadadores){
-                items.Add(listing.documentId + " / " + listing.nombre + " / " + listing.sexo + " / " + listing.estatura + " / " + listing.longitudBrazo);
-            }
-            var adapter =new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
-            resultListView.Adapter = adapter;
+            //var items = new List<String>();
+            //foreach(var listing in nadadores){
+            //    items.Add(listing.documentId + " / " + listing.nombre + " / " + listing.sexo + " / " + listing.estatura + " / " + listing.longitudBrazo);
+            //}
+            //var adapter =new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            //resultListView.Adapter = adapter;
         }
 
         void OnFinishClick(object sender, EventArgs e)
@@ -70,7 +70,13 @@ namespace SwimmingTool
             estaturaTexView.Text = Convert.ToString(nadador.estatura);
             longitudTextView.Text = Convert.ToString(nadador.longitudBrazo);
 
-
+            List<Registro> registros = registroDB.GetRegistrosByDocument(documentEditText.Text);
+            var items = new List<String>();
+            foreach(var listing in registros){
+                items.Add(listing.feha + " / " + listing.time + " / " + listing.numBrazadas);
+            }
+            var adapter =new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            resultListView.Adapter = adapter;
         }
     }
 }

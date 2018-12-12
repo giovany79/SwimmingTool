@@ -1,20 +1,26 @@
 ﻿<Properties StartupConfiguration="{0D4AD8F7-B3DA-49C2-A4CD-B9544F0E27E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SwimmingTool/Resultado.cs">
+  <MonoDevelop.Ide.ItemProperties.SwimmingTool AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.my_device" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SwimmingTool/Brazada.cs">
     <Files>
-      <File FileName="SwimmingTool/MainActivity.cs" Line="29" Column="57" />
-      <File FileName="SwimmingTool/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="SwimmingTool/Resources/Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="SwimmingTool/Brazada.cs" Line="46" Column="27" />
-      <File FileName="SwimmingTool/Resources/Activity.cs" Line="1" Column="1" />
-      <File FileName="SwimmingTool/Resultado.cs" Line="36" Column="53" />
-      <File FileName="SwimmingTool/Tabla.cs" Line="26" Column="55" />
+      <File FileName="SwimmingTool/Brazada.cs" Line="115" Column="1" />
+      <File FileName="Registro.cs" Line="2" Column="17" />
+      <File FileName="SwimmingTool/Model/Registro.cs" Line="13" Column="41" />
+      <File FileName="SwimmingTool/RegistroRepository.cs" Line="101" Column="14" />
+      <File FileName="SwimmingTool/Model/Nadador.cs" Line="16" Column="1" />
+      <File FileName="SwimmingTool/Registro.cs" Line="17" Column="1" />
+      <File FileName="SwimmingTool/Nadador.cs" Line="6" Column="22" />
+      <File FileName="SwimmingTool/FileAccessHelper.cs" Line="12" Column="1" />
+      <File FileName="SwimmingTool/MainActivity.cs" Line="47" Column="1" />
+      <File FileName="SwimmingTool/packages.config" Line="1" Column="1" />
+      <File FileName="SwimmingTool/Resultado.cs" Line="1" Column="1" />
+      <File FileName="SwimmingTool/Tabla.cs" Line="73" Column="1" />
+      <File FileName="../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="704" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.SwimmingTool AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MultiItemStartupConfigurations />
 </Properties>
