@@ -3,14 +3,20 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Content;
-using System.Collections.Generic;
+using Android.Content.PM;
+using Android;
+using Android.Support.V4.App;
 
 namespace SwimmingTool
 {
     [Activity(Label = "SwimmingTool", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
+
+        private string[] requiredPermissions = { Manifest.Permission.Camera };
+
         public static RegistroRepository PersonRepo { get; private set; }
+        public static Boolean isCammeraPermissionEnabled = false;
         public RegistroRepository registroDB;
         private EditText nombreEditText;
         private EditText documentoEditText;
@@ -35,10 +41,24 @@ namespace SwimmingTool
             brazoEditText = FindViewById<EditText>(Resource.Id.brazoEditText);
             estatutaEditText= FindViewById<EditText>(Resource.Id.estaturaEditText);
             hombreRadioButon = FindViewById<RadioButton>(Resource.Id.hombreRadioButton);
+
+            if (((int)Build.VERSION.SdkInt) >= (int)BuildVersionCodes.M)
+            {
+                RequestAllPersmissions();
+            }
+            else
+            {
+                isCammeraPermissionEnabled = true;
+            }
         }
 
         void OnAcceptClick(object sender, EventArgs e)
         {
+            if (!isCammeraPermissionEnabled)
+            {
+                Toast.MakeText(this, "Debes aceptar permisos para usar la cámara!", ToastLength.Short).Show();
+                return;
+            }
 
             Nadador nadador = new Nadador();
             nadador.documentId = documentoEditText.Text;
@@ -60,6 +80,30 @@ namespace SwimmingTool
 
         }
 
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            switch (requestCode)
+            {
+                case 1000:
+                    {
+                        // If request is cancelled, the result arrays are empty.
+                        if (grantResults.Length > 0 && grantResults[0] == Permission.Granted)
+                        {
+                            isCammeraPermissionEnabled = true;
+                        }
+                        else
+                        {
+                            isCammeraPermissionEnabled = false;
+                        }
+                        return;
+                    }
+            }
+        }
+
+        private void RequestAllPersmissions()
+        {
+            ActivityCompat.RequestPermissions(this, requiredPermissions, 1000);
+        }
 
     }
 }

@@ -11,10 +11,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Timers;
+using Android.Hardware;
+using Android.Util;
 
 namespace SwimmingTool
 {
-    [Activity(Label = "Brazada")]
+    [Activity(Label = "Brazada", ScreenOrientation =Android.Content.PM.ScreenOrientation.Landscape)]
     public class Brazada : Activity
     {
 
@@ -40,6 +42,12 @@ namespace SwimmingTool
             FindViewById<Button>(Resource.Id.brazadaButton).Click += OnBrazadaClick;
             FindViewById<Button>(Resource.Id.startStopButton).Click += OnStartStopClick;
             FindViewById<Button>(Resource.Id.resetButton).Click += OnResetClick;
+
+            LinearLayout ll = FindViewById<LinearLayout>(Resource.Id.ll_container_surface_view);
+            Camera _camera = SetUpCamera();
+            ll.AddView(new CameraPreview(this, _camera));
+            _camera.StartPreview();
+
             numBrazadaTV = FindViewById<TextView>(Resource.Id.numBrazadaTextView);
             txtTimer = FindViewById<TextView>(Resource.Id.timeTextView);
 
@@ -117,5 +125,20 @@ namespace SwimmingTool
             });
         }
 
+
+        Camera SetUpCamera()
+        {
+            Camera c = null;
+            try
+            {
+                c = Camera.Open();
+            }
+            catch (Exception e)
+            {
+                Log.Debug("", "Device camera not available now.");
+            }
+
+            return c;
+        }
     }
 }
